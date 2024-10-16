@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
+    hostname: fhir-demo-source
+    container_name: fhir-demo-source
     environment:
       - ISC_CPF_MERGE_FILE=/irisdev/app/merge.cpf
     command: 
@@ -16,6 +18,7 @@ services:
     volumes:
       - ./:/irisdev/app
       - ./init.db/:/docker-entrypoint-initdb.d/
+      - ./jdbc:/jdbc
 
   lorah:
     build: 
@@ -23,6 +26,8 @@ services:
       dockerfile: Dockerfile
     image: fhir_server
     restart: always
+    hostname: lorah
+    container_name: lorah
     command: 
       --check-caps false
     ports: 
@@ -31,10 +36,14 @@ services:
       - 53774
     volumes:
       - ./:/irisdev/app
+      - ./jdbc:/jdbc
+
 
   oscar:
     image: fhir_server
     restart: always
+    hostname: oscar
+    container_name: oscar
     command: 
       --check-caps false
     ports: 
@@ -43,6 +52,7 @@ services:
       - 53774
     volumes:
       - ./:/irisdev/app
+      - ./jdbc:/jdbc
 
   notebook:
     build: 
@@ -53,3 +63,19 @@ services:
     volumes:
       - ./notebook/Notebooks:/Notebooks
     command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/Notebooks"
+  postgres:
+    container_name: fhirdemo-postgres
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./postgreSQL:/docker-entrypoint-initdb.d/
+      - ./volumes/postgreSQL:/var/lib/postgresql/data
+    ports:
+      - 52004:5432
+    restart: unless-stopped
+    healthcheck:
+        test: ["CMD", "pg_isready", "-U", "postgres"]
+        interval: 30s
+        timeout: 30s
+        retries: 3
