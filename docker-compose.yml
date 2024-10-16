@@ -1,0 +1,55 @@
+version: '3.6'
+services:
+  iris:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - ISC_CPF_MERGE_FILE=/irisdev/app/merge.cpf
+    command: 
+      --check-caps false
+    ports: 
+      - 1972
+      - 43796:52773
+      - 53773
+    volumes:
+      - ./:/irisdev/app
+      - ./init.db/:/docker-entrypoint-initdb.d/
+
+  lorah:
+    build: 
+      context: fhir_server/.
+      dockerfile: Dockerfile
+    image: fhir_server
+    restart: always
+    command: 
+      --check-caps false
+    ports: 
+      - 1973
+      - 43798:52773
+      - 53774
+    volumes:
+      - ./:/irisdev/app
+
+  oscar:
+    image: fhir_server
+    restart: always
+    command: 
+      --check-caps false
+    ports: 
+      - 1973
+      - 43799:52773
+      - 53774
+    volumes:
+      - ./:/irisdev/app
+
+  notebook:
+    build: 
+      context: notebook
+      dockerfile: dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebook/Notebooks:/Notebooks
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/Notebooks"
