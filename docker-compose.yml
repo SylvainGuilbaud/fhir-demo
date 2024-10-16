@@ -49,7 +49,7 @@ services:
       context: notebook
       dockerfile: dockerfile
     ports:
-      - "8888:8888"
+      - "8889:8888"
     volumes:
       - ./notebook/Notebooks:/Notebooks
     command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/Notebooks"
