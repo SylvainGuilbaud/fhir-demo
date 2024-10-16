@@ -11,7 +11,7 @@ services:
       --check-caps false
     ports: 
       - 1972
-      - 43796:52773
+      - 52001:52773
       - 53773
     volumes:
       - ./:/irisdev/app
@@ -27,7 +27,7 @@ services:
       --check-caps false
     ports: 
       - 1973
-      - 43798:52773
+      - 52002:52773
       - 53774
     volumes:
       - ./:/irisdev/app
@@ -39,7 +39,7 @@ services:
       --check-caps false
     ports: 
       - 1973
-      - 43799:52773
+      - 52003:52773
       - 53774
     volumes:
       - ./:/irisdev/app
