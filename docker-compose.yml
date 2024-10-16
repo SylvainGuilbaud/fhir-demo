@@ -38,7 +38,6 @@ services:
       - ./:/irisdev/app
       - ./jdbc:/jdbc
 
-
   oscar:
     image: fhir_server
     restart: always

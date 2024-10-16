@@ -1,4 +1,12 @@
 .DS_Store
+**/.DS_Store
+**/*.log
+**/*.tar
+**/*.gz
+**/IRIS.DAT
+**/iris.lck
+volumes
+
 __pycache__
 
 
