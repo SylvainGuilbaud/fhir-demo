@@ -5,7 +5,7 @@
 **/*.gz
 **/IRIS.DAT
 **/iris.lck
-**volumes
+volumes
 __pycache__
 
 
