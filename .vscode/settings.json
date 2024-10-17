@@ -5,11 +5,11 @@
         "iris.script": "objectscript"
       },
     "objectscript.conn" :{
-      "ns": "IRISAPP",
+      "ns": "FHIRSERVER",
       "username": "SuperUser",
       "password": "SYS",
       "docker-compose": {
-        "service": "iris",
+        "service": "lorah",
         "internalPort": 52773
       },
       "active": true,
@@ -21,7 +21,8 @@
         "FHIR SQL Builder OSCAR": "http://${host}:52003/csp/fhirsql/index.html",
         "IRIS SOURCE": "http://localhost:52001/csp/sys/%25CSP.Portal.Home.zen",
         "IRIS LORAH": "http://localhost:52002/csp/sys/%25CSP.Portal.Home.zen",
-        "IRIS OSCAR": "http://localhost:52003/csp/sys/%25CSP.Portal.Home.zen"
+        "IRIS OSCAR": "http://localhost:52003/csp/sys/%25CSP.Portal.Home.zen",
+        "Notebook": "http://localhost:8889"
       }
     },
     "intersystems.servers": {
