@@ -1,7 +1,6 @@
-# Hl7v2 to Fhir converter
+# FHIR demo
 
-This project is a simple tool to convert HL7v2 messages to FHIR resources.
-It is based on Microsoft's [FHIR Converter](https://github.com/microsoft/FHIR-Converter) and the workflow on IRIS for Health.
+This project is a simple demo converting HL7v2 messages to FHIR resources.
 
 ## Prerequisites
 
@@ -20,7 +19,7 @@ git clone
 2. Change to the project directory:
 
 ```bash
-cd hl7v2-to-fhir-converter
+cd fhir-demo
 ```
 
 3. Start the services:
