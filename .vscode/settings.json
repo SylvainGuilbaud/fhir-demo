@@ -5,24 +5,22 @@
         "iris.script": "objectscript"
       },
     "objectscript.conn" :{
-      "ns": "FHIRSERVER",
+      "ns": "IRISAPP",
       "username": "SuperUser",
       "password": "SYS",
-      "docker-compose": {
-        "service": "lorah",
-        "internalPort": 52773
-      },
+      "host": "192.168.1.103",
+      "port": 52001,
       "active": true,
       "links": {
-        "Production": "http://localhost:${port}/csp/irisapp/EnsPortal.ProductionConfig.zen?PRODUCTION=dc.Python.Production",
-        "SQL LORAH": "http://localhost:52002/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=FHIRSERVER",
-        "SQL OSCAR": "http://localhost:52003/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=FHIRSERVER",
-        "FHIR SQL Builder LORAH": "http://${host}:52002/csp/fhirsql/index.html",
-        "FHIR SQL Builder OSCAR": "http://${host}:52003/csp/fhirsql/index.html",
-        "IRIS SOURCE": "http://localhost:52001/csp/sys/%25CSP.Portal.Home.zen",
-        "IRIS LORAH": "http://localhost:52002/csp/sys/%25CSP.Portal.Home.zen",
-        "IRIS OSCAR": "http://localhost:52003/csp/sys/%25CSP.Portal.Home.zen",
-        "Notebook": "http://localhost:8889"
+        "Production": "http://192.168.1.103:52001/csp/irisapp/EnsPortal.ProductionConfig.zen?PRODUCTION=dc.Python.Production",
+        "SQL LORAH": "http://192.168.1.103:52002/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=FHIRSERVER",
+        "SQL OSCAR": "http://192.168.1.103:52003/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=FHIRSERVER",
+        "FHIR SQL Builder LORAH": "http://192.168.1.103:52002/csp/fhirsql/index.html",
+        "FHIR SQL Builder OSCAR": "http://192.168.1.103:52003/csp/fhirsql/index.html",
+        "IRIS SOURCE": "http://192.168.1.103:52001/csp/sys/%25CSP.Portal.Home.zen",
+        "IRIS LORAH": "http://192.168.1.103:52002/csp/sys/%25CSP.Portal.Home.zen",
+        "IRIS OSCAR": "http://192.168.1.103:52003/csp/sys/%25CSP.Portal.Home.zen",
+        "Notebook": "http://192.168.1.103:8889"
       }
     },
     "intersystems.servers": {
